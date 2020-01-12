@@ -1,4 +1,4 @@
-package com.naver;
+package Member;
 
 import java.io.Serializable;
 

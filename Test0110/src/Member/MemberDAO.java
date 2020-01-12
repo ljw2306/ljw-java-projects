@@ -1,4 +1,4 @@
-package com.naver;
+package Member;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,9 +24,14 @@ public class MemberDAO {
 		PreparedStatement pstmt = null;
 		String sql = "insert into member values (?, ?, ?, ?)";
 		
+		
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASSWORD);
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getId());
+			pstmt.setString(2, dto.getName());
+			pstmt.setInt(3, dto.getAge());
+			pstmt.setString(4, dto.getDid());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
